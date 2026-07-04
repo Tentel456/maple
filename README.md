@@ -1,2 +1,1 @@
-# maple
-maple monorepo for practice
+<img src="assets/Maple-1.png" />
