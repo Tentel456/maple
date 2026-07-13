@@ -1,0 +1,17 @@
+restart;
+ineq := 2*ln(x)^2 - ln(x) < 1;
+printf("Исходное неравенство:\n");
+ineq;
+sol := solve(ineq, x);
+printf("Решение в виде ограничения:\n%a\n", sol);
+with(RealDomain):
+interval := solve(ineq, x);
+printf("Интервальное решение:\n%a\n", interval);
+check1 := eval(2*ln(x)^2 - ln(x) < 1, x = exp(-1/2));
+printf("ПРОВЕРКА 1. x = exp(-1/2): %a (ожидается true)\n", check1);
+check2 := eval(2*ln(x)^2 - ln(x) < 1, x = 1);
+printf("ПРОВЕРКА 2. x = 1: %a (ожидается true)\n", check2);
+check3 := eval(2*ln(x)^2 - ln(x) < 1, x = 3);
+printf("ПРОВЕРКА 3. x = 3: %a (ожидается false)\n", check3);
+printf("\nОТВЕТ:\n");
+printf("Решение: exp(-1/2) < x < exp(1)\n");
