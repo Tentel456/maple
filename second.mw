@@ -1,0 +1,29 @@
+restart;
+with(plots):
+z1 := cos(5*x) + cos(5*y):
+z2 := x^2 + 3*y^2 - 4:
+printf("Первая поверхность:\n");
+z1;
+printf("Вторая поверхность:\n");
+z2;
+plot3d(
+    [z1, z2],
+    x = -2..2,
+    y = -1..1,
+    shading = [zgrayscale, none],
+    color = [default, grey],
+    style = [patchnogrid, patch],
+    lightmodel = light3,
+    transparency = 0.1,
+    labels = ["x","y","z"],
+    axes = boxed,
+    title = "Графики поверхностей z1 и z2"
+);
+printf("\nПРОВЕРКА 1.\n");
+printf("z1(0,0) = %a\n", eval(z1,[x=0,y=0]));
+printf("ПРОВЕРКА 2.\n");
+printf("z2(0,0) = %a\n", eval(z2,[x=0,y=0]));
+printf("ПРОВЕРКА 3.\n");
+printf("z1(1,0) = %a\n", evalf(eval(z1,[x=1,y=0]),10));
+printf("z2(1,0) = %a\n", eval(eval(z2,[x=1,y=0])));
+printf("\nОТВЕТ: поверхности построены на одном рисунке с параметрами, указанными в условии.\n");
